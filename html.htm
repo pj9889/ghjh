@@ -1,7 +1,195 @@
-<div class="container"><center><h1> </h1></center> <div class="panel panel-default">  <div class="panel-heading">Message       1  </div>  <div class="panel-body">হোম সার্ভিস হোম সার্ভিস  হোম সার্ভিস 
-Hello Sir.....
-বাসা/অফিস/হোটেল/রেস্টুরেন্ট সকল প্রকার পুরনো ফার্নিচার গুলোকে আমাদের সার্ভিসের মাধ্যমে আবার নতুনের মত বানিয়ে নিতে পারবেন স্বল্প খরচে,, 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Analytics Dashboard - Hybrid</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --success: #4cc9f0;
+            --danger: #f72585;
+            --dark: #1e1e2d;
+            --direct: #00c6ff;
+            --direct-alt: #22c55e;
+        }
 
-*Furnifix Rajshahi" 
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #f0f2f5; margin: 0; padding: 0; color: var(--dark); }
+        .navbar { background: var(--dark); color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        
+        /* সেকশন টাইটেল */
+        .section-title { width: 100%; margin: 20px 0 10px; font-size: 18px; font-weight: bold; border-left: 4px solid var(--primary); padding-left: 10px; }
 
-Call now 01736484407  </div></div><br> <div class="panel panel-default">  <div class="panel-heading">       Summery  </div>  <div class="panel-body">Total Success  = 13 / Total Fail  = 0  </div></div><br><table class="table table-bordered"><thead><tr><th>ChatName</th><th>Result</th></tr></thead><tbody><tr><td>1992284318</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1766608898</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1620863336</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1869273784</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1763388488</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1717142452</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1715578147</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1725308484</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1610033974</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1767096666</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1761000500</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1303766528</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr><tr><td>1756625111</td><td><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAALCAYAAACgR9dcAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1ODVFMzhBMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1ODVFMzhCMEI3QjExRUZCOUJBRURFRjQ4QjUxQzY4Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjU4NUUzODgwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjU4NUUzODkwQjdCMTFFRkI5QkFFREVGNDhCNTFDNjgiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6hVX3cAAACE0lEQVR42oRSzWsTQRT/zcx+JFmaJlubkEZREVtpU6qlEaQ3EU9SlAga7cGDf4Fnbx49eJRePVSpSEDTEFQoFIoUC4IUSrVCTciHNa6tSfOx2dlxtkFFEHzw4PEev495b8i97YewucDq900kzZOweA0RZoIKFSXXgss5fFSHwjCxUM4+tjo/QjPR87fCurmm4D+hMR0QYuxJ4elitVOLg6hYsd4+OqQP5hUKAo0qoIQd1plWYy5r92ACjDAQQRLZ8ovn1bYE+uOy7aDU2YmW2pURajAD7+vr9/O1bPFZJfdSp2pMoypUmZIsvljNZbZbxePwxwDXBlplJIOJ5WtDMwvMnjUf5Hde3xFE4Mv+56Ml27pwcWB6LkANMleYXy40tkbhi0hFAjh7MLSBrXPm2UtHfLFXysb+5jCnDGBBQAUK9U9yMbl5SMPF+seJA0V4QAsxPfohGjiWanO73OBN0NtD6buDzCjA/tp7qi+OJevN9aVvK+keUIachZlRGQ2OX+bCWff2IelA+5jv3ZnwVEquvomu1VNRPBf93lgCLUTUUCtpTl9pu/YGF/z3JWiTtzyetRPGcCrMAh10d2VXk6kfAEPM3xkJnr4qSVcdtyupyR+wV3pslND8ZDiZDhDShdOAl4asJ8NTaUJITtoFIX//AfqrcORQEJYZ60vckKfaZZTuneofvymIluFS8V/xU4ABAAREzr5Wl0pAAAAAAElFTkSuQmCC"> Success</td></tr></tbody></table><button type="button" onclick="downloadDiv( document.getElementsByTagName(&quot;h1&quot;)[0].innerText+&quot;.html&quot;,document.body.innerHTML,&quot;text/html&quot;);"> Download Report</button></div><script>function downloadDiv(filename, elementId, mimeType){var elementHtml = elementId;var link = document.createElement('a');mimeType = mimeType || 'text/plain';link.setAttribute('download', filename);link.setAttribute('href', 'data:' + mimeType  +  ';charset=utf-8,' + encodeURIComponent(elementHtml));link.click();}</script>
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-5px); }
+        .card i { font-size: 40px; position: absolute; right: 20px; bottom: 20px; opacity: 0.1; }
+        .card h3 { margin: 0; font-size: 13px; text-transform: uppercase; color: #6c757d; }
+        .card .value { font-size: 32px; font-weight: bold; margin: 10px 0; display: block; }
+
+        .charts-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .chart-container { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        
+        .refresh-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; }
+
+        @media (max-width: 900px) { .charts-flex { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+
+<div id="loader" class="loading-overlay"><h2>লোড হচ্ছে...</h2></div>
+
+<nav class="navbar">
+    <div style="font-size: 20px; font-weight: bold;"><i class="fa-solid fa-gauge-high"></i> Master Analytics</div>
+    <button class="refresh-btn" onclick="fetchAllData()">
+        <i class="fa-solid fa-rotate"></i> রিফ্রেশ করুন
+    </button>
+</nav>
+
+<div class="container">
+    
+    <!-- মেইন ট্রাফিক সেকশন -->
+    <div class="section-title">Main Traffic Insights</div>
+    <div class="stats-grid">
+        <div class="card" style="border-bottom: 4px solid var(--primary);">
+            <h3>মোট ভিজিটর</h3>
+            <span class="value" id="v">0</span>
+            <i class="fa-solid fa-users"></i>
+        </div>
+        <div class="card" style="border-bottom: 4px solid #6f42c1;">
+            <h3>মেসেজ সেন্ড</h3>
+            <span class="value" id="m">0</span>
+            <i class="fa-solid fa-comment-dots"></i>
+        </div>
+        <div class="card" style="border-bottom: 4px solid var(--success);">
+            <h3>ভিডিও কল</h3>
+            <span class="value" id="vc">0</span>
+            <i class="fa-solid fa-video"></i>
+        </div>
+        <div class="card" style="border-bottom: 4px solid #fd7e14;">
+            <h3>কল এগেন</h3>
+            <span class="value" id="ca">0</span>
+            <i class="fa-solid fa-phone-flip"></i>
+        </div>
+        <div class="card" style="border-bottom: 4px solid var(--danger);">
+            <h3>রেজিস্ট্রেশন</h3>
+            <span class="value" id="r">0</span>
+            <i class="fa-solid fa-user-plus"></i>
+        </div>
+    </div>
+
+    <!-- ডাইরেক্ট লিঙ্ক সেকশন -->
+    <div class="section-title">Direct Link Insights (New)</div>
+    <div class="stats-grid">
+        <div class="card" style="border-bottom: 4px solid var(--direct);">
+            <h3>Direct Visit</h3>
+            <span class="value" id="dv">0</span>
+            <i class="fa-solid fa-link"></i>
+        </div>
+        <div class="card" style="border-bottom: 4px solid var(--direct-alt);">
+            <h3>Button Click</h3>
+            <span class="value" id="dc">0</span>
+            <i class="fa-solid fa-hand-pointer"></i>
+        </div>
+        <div class="card" style="border-bottom: 4px solid #34495e;">
+            <h3>CTR Rate</h3>
+            <span class="value" id="dr">0%</span>
+            <i class="fa-solid fa-percent"></i>
+        </div>
+    </div>
+
+    <div class="charts-flex">
+        <div class="chart-container">
+            <h4 style="margin-top:0">Main Traffic Distribution</h4>
+            <canvas id="trafficChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h4 style="margin-top:0">Direct Link Performance</h4>
+            <canvas id="directChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script>
+    // আপনার ২টা আলাদা API লিঙ্ক
+    const MAIN_API = "https://script.google.com/macros/s/AKfycbzXIlowODRnKPfVwnRmdBEOWPQ9SYtjLzSnuZxtBiiue3c6LbdC-wggDBimdLYLtAi-/exec";
+    const DIRECT_API = "https://script.google.com/macros/s/AKfycbxo8ZyK3hi3-dfFaSu-_ZbUDPudyXMWdAN5LCI92to2qTUEjVTp7B4Yshp44sgEXwjm/exec";
+    
+    let mainChart, directChart;
+
+    async function fetchAllData() {
+        document.getElementById('loader').style.display = 'flex';
+        try {
+            // একসাথে ২টা API কল করা হচ্ছে
+            const [mainRes, directRes] = await Promise.all([
+                fetch(MAIN_API).then(r => r.json()),
+                fetch(DIRECT_API).then(r => r.json())
+            ]);
+
+            // ১. মেইন কার্ড আপডেট
+            document.getElementById('v').innerText = mainRes.visitor;
+            document.getElementById('m').innerText = mainRes.message;
+            document.getElementById('vc').innerText = mainRes.video;
+            document.getElementById('ca').innerText = mainRes.callagain;
+            document.getElementById('r').innerText = mainRes.register;
+            updateMainChart(mainRes);
+
+            // ২. ডাইরেক্ট লিঙ্ক কার্ড আপডেট
+            const dv = directRes.filter(x => x.event === 'Total_Visit').length;
+            const dc = directRes.filter(x => x.event === 'Button_Click').length;
+            document.getElementById('dv').innerText = dv;
+            document.getElementById('dc').innerText = dc;
+            document.getElementById('dr').innerText = dv > 0 ? ((dc/dv)*100).toFixed(1) + '%' : '0%';
+            updateDirectChart(dv, dc);
+
+        } catch (error) {
+            console.error("Error:", error);
+        }
+        document.getElementById('loader').style.display = 'none';
+    }
+
+    function updateMainChart(data) {
+        const ctx = document.getElementById('trafficChart').getContext('2d');
+        if (mainChart) mainChart.destroy();
+        mainChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['ভিজিটর', 'মেসেজ', 'ভিডিও', 'কল', 'রেজিঃ'],
+                datasets: [{
+                    label: 'Traffic',
+                    data: [data.visitor, data.message, data.video, data.callagain, data.register],
+                    backgroundColor: ['#4361ee', '#6f42c1', '#4cc9f0', '#fd7e14', '#f72585'],
+                    borderRadius: 8
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+    }
+
+    function updateDirectChart(v, c) {
+        const ctx = document.getElementById('directChart').getContext('2d');
+        if (directChart) directChart.destroy();
+        directChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Visits', 'Clicks'],
+                datasets: [{
+                    data: [v, c],
+                    backgroundColor: ['#00c6ff', '#22c55e'],
+                    borderWidth: 0
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+    }
+
+    window.onload = fetchAllData;
+</script>
+
+</body>
+</html>
